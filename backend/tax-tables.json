@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "year": 2025,
+    "description": "Tax tables for 2025 (grouped by period)",
+    "aids_levy": "3% of Individuals' Tax payable"
+  },
+  "tax_brackets_by_period": {
+    "Annual": [
+      {
+        "period": "Annual",
+        "min": 1201.0,
+        "max": 3600.0,
+        "tax_rate": 20,
+        "deductable": 240.0
+      },
+      {
+        "period": "Annual",
+        "min": 3601.0,
+        "max": 12000.0,
+        "tax_rate": 25,
+        "deductable": 420.0
+      },
+      {
+        "period": "Annual",
+        "min": 12001.0,
+        "max": 24000.0,
+        "tax_rate": 30,
+        "deductable": 1020.0
+      },
+      {
+        "period": "Annual",
+        "min": 24001.0,
+        "max": 36000.0,
+        "tax_rate": 35,
+        "deductable": 2220.0
+      }
+    ],
+    "Daily": [
+      {
+        "period": "Daily",
+        "min": 3.3,
+        "max": 9.86,
+        "tax_rate": 20,
+        "deductable": 0.66
+      },
+      {
+        "period": "Daily",
+        "min": 9.87,
+        "max": 32.88,
+        "tax_rate": 25,
+        "deductable": 1.15
+      },
+      {
+        "period": "Daily",
+        "min": 32.89,
+        "max": 65.75,
+        "tax_rate": 30,
+        "deductable": 2.79
+      },
+      {
+        "period": "Daily",
+        "min": 65.76,
+        "max": 98.63,
+        "tax_rate": 35,
+        "deductable": 6.08
+      }
+    ],
+    "Fortnightly": [
+      {
+        "period": "Fortnightly",
+        "min": 46.16,
+        "max": 138.46,
+        "tax_rate": 20,
+        "deductable": 9.23
+      },
+      {
+        "period": "Fortnightly",
+        "min": 138.47,
+        "max": 461.54,
+        "tax_rate": 25,
+        "deductable": 16.15
+      },
+      {
+        "period": "Fortnightly",
+        "min": 461.55,
+        "max": 923.08,
+        "tax_rate": 30,
+        "deductable": 39.23
+      },
+      {
+        "period": "Fortnightly",
+        "min": 923.09,
+        "max": 1384.62,
+        "tax_rate": 35,
+        "deductable": 85.38
+      }
+    ],
+    "Monthly": [
+      {
+        "period": "Monthly",
+        "min": 100.01,
+        "max": 300.0,
+        "tax_rate": 20,
+        "deductable": 20.0
+      },
+      {
+        "period": "Monthly",
+        "min": 300.01,
+        "max": 1000.0,
+        "tax_rate": 25,
+        "deductable": 35.0
+      },
+      {
+        "period": "Monthly",
+        "min": 1000.01,
+        "max": 2000.0,
+        "tax_rate": 30,
+        "deductable": 85.0
+      },
+      {
+        "period": "Monthly",
+        "min": 2000.01,
+        "max": 3000.0,
+        "tax_rate": 35,
+        "deductable": 185.0
+      }
+    ],
+    "Weekly": [
+      {
+        "period": "Weekly",
+        "min": 23.09,
+        "max": 69.23,
+        "tax_rate": 20,
+        "deductable": 4.62
+      },
+      {
+        "period": "Weekly",
+        "min": 69.24,
+        "max": 230.77,
+        "tax_rate": 25,
+        "deductable": 8.08
+      },
+      {
+        "period": "Weekly",
+        "min": 230.78,
+        "max": 461.54,
+        "tax_rate": 30,
+        "deductable": 19.62
+      },
+      {
+        "period": "Weekly",
+        "min": 461.55,
+        "max": 692.31,
+        "tax_rate": 35,
+        "deductable": 42.69
+      }
+    ]
+  }
+}
