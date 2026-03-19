@@ -18,7 +18,7 @@ router.post('/calculate', async (req, res) => {
     const usdFromZW = zwAmount ? parseFloat(zwAmount) / parseFloat(interbankRate) : 0;
     const total = parseFloat(usdAmount || 0) + usdFromZW;
 
-    console.log(`USD: ${usdAmount}, ZW: ${zwAmount}, Total: ${total.toFixed(2)}, Period: ${period}`);
+    console.log(`USD: ${usdAmount}, ZW: ${zwAmount}, Total: ${total.toFixed(3)}, Period: ${period}`);
 
     if (zwAmount && appropriation) {
       const brackets = taxData.tax_brackets_by_period[period];
@@ -26,10 +26,10 @@ router.post('/calculate', async (req, res) => {
       const bracket = brackets.find(b => total >= b.min && total <= b.max);
       if (!bracket) {
         const highestMax = brackets[brackets.length-1].max;
-        return res.json({ message: `Total $${total.toFixed(2)} exceeds ${period} max ($${highestMax.toFixed(2)})` });
+        return res.json({ message: `Total $${total.toFixed(3)} exceeds ${period} max ($${highestMax.toFixed(3)})` });
       }
 
-      // ✅ YOUR 675.62 → Monthly 25% bracket ✓
+      //
       totalTax = (total * (bracket.tax_rate / 100)) - bracket.deductable;
       
       usdTax = (parseFloat(usdAmount) / total) * totalTax;
@@ -41,9 +41,9 @@ router.post('/calculate', async (req, res) => {
       }
 
       res.json({ 
-        usdTax: parseFloat(usdTax.toFixed(2)), 
-        zwTax: parseFloat(zwTax.toFixed(2)),
-        totalTax: parseFloat(totalTax.toFixed(2))
+        usdTax: parseFloat(usdTax.toFixed(3)), 
+        zwTax: parseFloat(zwTax.toFixed(3)),
+        totalTax: parseFloat(totalTax.toFixed(3))
       });
 
     } else if (usdAmount || zwAmount) {
@@ -53,7 +53,7 @@ router.post('/calculate', async (req, res) => {
       if (bracket) {
         totalTax = (total * (bracket.tax_rate / 100)) - bracket.deductable;
         if (aidsLevy) totalTax *= 1.03;
-        res.json({ totalTax: parseFloat(totalTax.toFixed(2)) });
+        res.json({ totalTax: parseFloat(totalTax.toFixed(3)) });
       } else {
         res.json({ message: 'total is not taxable' });
       }
