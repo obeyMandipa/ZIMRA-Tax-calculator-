@@ -8,6 +8,13 @@
     "Annual": [
       {
         "period": "Annual",
+        "min": 0.0,
+        "max": 1200.0,
+        "tax_rate": 0,
+        "deductable": 0.0
+      },
+      {
+        "period": "Annual",
         "min": 1201.0,
         "max": 3600.0,
         "tax_rate": 20,
@@ -33,6 +40,13 @@
         "max": 36000.0,
         "tax_rate": 35,
         "deductable": 2220.0
+      },
+      {
+        "period": "Annual",
+        "min": 36001.0,
+        "max": null,
+        "tax_rate": 40,
+        "deductable": 4020.0
       }
     ],
     "Daily": [
@@ -63,9 +77,23 @@
         "max": 98.63,
         "tax_rate": 35,
         "deductable": 6.08
+      },
+      {
+        "period": "Daily",
+        "min": 98.64,
+        "max": null,
+        "tax_rate": 40,
+        "deductable": 11.01
       }
     ],
     "Fortnightly": [
+      {
+        "period": "Fortnightly",
+        "min": 0.0,
+        "max": 46.16,
+        "tax_rate": 0,
+        "deductable": 0.0
+      },
       {
         "period": "Fortnightly",
         "min": 46.16,
@@ -93,9 +121,23 @@
         "max": 1384.62,
         "tax_rate": 35,
         "deductable": 85.38
+      },
+      {
+        "period": "Fortnightly",
+        "min": 1384.63,
+        "max": null,
+        "tax_rate": 40,
+        "deductable": 154.62
       }
     ],
     "Monthly": [
+      {
+        "period": "Monthly",
+        "min": 0.0,
+        "max": 100.0,
+        "tax_rate": 0,
+        "deductable": 0.0
+      },
       {
         "period": "Monthly",
         "min": 100.01,
@@ -123,9 +165,23 @@
         "max": 3000.0,
         "tax_rate": 35,
         "deductable": 185.0
+      },
+      {
+        "period": "Monthly",
+        "min": 3000.01,
+        "max": null,
+        "tax_rate": 40,
+        "deductable": 335.0
       }
     ],
     "Weekly": [
+      {
+        "period": "Weekly",
+        "min": 0.0,
+        "max": 23.08,
+        "tax_rate": 0,
+        "deductable": 0.0
+      },
       {
         "period": "Weekly",
         "min": 23.09,
@@ -153,6 +209,13 @@
         "max": 692.31,
         "tax_rate": 35,
         "deductable": 42.69
+      },
+      {
+        "period": "Weekly",
+        "min": 692.32,
+        "max": null,
+        "tax_rate": 40,
+        "deductable": 77.31
       }
     ]
   }
