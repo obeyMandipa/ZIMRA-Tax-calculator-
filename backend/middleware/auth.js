@@ -1,20 +1,21 @@
 // middleware/auth.js
 // Middleware to authenticate users using JWT tokens, verifying the token and attaching the user to the request object
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const User = require('../models/User');
 
 const auth = async (req, res, next) => {
   try {
     const token = req.header('Authorization')?.replace('Bearer ', '');
-    if (!token) return res.status(401).json({ error: 'No token' });
+    if (!token) {
+      return res.status(401).json({ error: 'Access denied. No token provided.' });
+    }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.id);
-    
+    const user = await User.findById(decoded.id).select('-password');
     req.user = user;
     next();
   } catch (error) {
-    res.status(401).json({ error: 'Invalid token' });
+    res.status(400).json({ error: 'Invalid token' });
   }
 };
 

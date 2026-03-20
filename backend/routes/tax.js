@@ -73,8 +73,10 @@ router.post('/calculate', async (req, res) => {
 });
 
 // ✅ NEW: Add endpoint to fetch tax brackets
-router.get('/tax-brackets', (req, res) => {
+router.get('/tax-brackets', async (req, res) => {
   try {
+    const taxDataPath = path.join(__dirname, '../tax-tables.json');
+    const taxData = JSON.parse(await fs.readFile(taxDataPath, 'utf8'));
     res.json(taxData.tax_brackets_by_period);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch tax brackets' });
