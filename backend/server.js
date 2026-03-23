@@ -28,6 +28,8 @@ try {
 app.use('/api/tax', require('./routes/tax'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/uploads', require('./routes/uploads'));
+app.use('/api/interbank', require('./routes/Interbank'));
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
