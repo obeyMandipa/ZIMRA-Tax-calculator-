@@ -90,4 +90,37 @@ router.get('/files', auth, async (req, res) => {
   }
 });
 
+// ✅ ADD THIS DELETE ROUTE
+router.delete('/files/:filename', auth, async (req, res) => {
+  try {
+    const filename = req.params.filename;
+    const filePath = path.join(__dirname, '../uploads', filename);
+    
+    // Delete physical file
+    await fs.unlink(filePath).catch(err => {
+      if (err.code !== 'ENOENT') throw err; // Ignore if file not found
+    });
+    
+    // Remove from files.json
+    const filesPath = path.join(__dirname, '../files.json');
+    let allFiles = [];
+    try {
+      const data = await fs.readFile(filesPath, 'utf8');
+      allFiles = JSON.parse(data);
+    } catch (e) {
+      allFiles = [];
+    }
+    
+    const updatedFiles = allFiles.filter(f => f.filename !== filename);
+    await fs.writeFile(filesPath, JSON.stringify(updatedFiles, null, 2));
+    
+    res.json({ message: `File ${filename} deleted successfully` });
+  } catch (error) {
+    console.error('Delete error:', error);
+    res.status(500).json({ error: 'Failed to delete file' });
+  }
+});
+
+
+
 module.exports = router;
