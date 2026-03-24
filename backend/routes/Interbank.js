@@ -36,4 +36,17 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
+// DELETE rate by ID
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const rate = await InterbankRate.findByIdAndDelete(req.params.id);
+    if (!rate) {
+      return res.status(404).json({ error: 'Rate not found' });
+    }
+    res.json({ message: 'Rate deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete rate' });
+  }
+});
+
 module.exports = router;
